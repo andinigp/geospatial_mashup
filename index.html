@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Geospatial Mashup</title>
+      <<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+	  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="crossorigin=""/>
+      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+	  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+	  crossorigin=""></script>
+   </head>
+   
+   <body>
+      <div id = "map" style = "width:100%; height:700px"></div> 
+	  <script> 
+	  // Creating map options
+         var mapOptions = {
+            center: [-7.666001, 110.418420],
+            zoom: 14
+         }
+         var map = new L.map('map', mapOptions); // Creating a map object
+         
+         // Creating a Layer object
+         var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+         map.addLayer(layer);
+	 
+	  var marker = L.marker([-7.6660001, 110.418420]).addTo(map);
+	  var circle = L.circle([-7.668886, 110.428708], {
+	  color: '#FF1493',
+	  fillColor: '#FFC0CB',
+	  fillOpacity: 0.5,
+	  radius: 200 //Size in meter
+	  }).addTo(map);
+	  
+	  var polygon = L.polygon([
+	  [-7.68113, 110.405822],
+	  [-7.663336, 110.412928],
+	  [-7.659538, 110.395438],
+	  [-7.676913, 110.391036]], {
+	  color: '#2E8B58',
+	  fillColor: '#00FF7F',
+	  fillOpacity: 0.3
+	  }).addTo(map);
+	  
+	  var polyline = L.polyline([
+	  [-7.682778, 110.419555],
+	  [-7.678259, 110.417517],
+	  [-7.667438, 110.417773]], {
+	  color: '#FF0000',
+	  }).addTo(map);
+
+	  </script>
+	</body>
+</html>
+	 
